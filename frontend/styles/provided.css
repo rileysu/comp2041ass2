@@ -1,0 +1,53 @@
+body {
+  min-height: 75rem;
+  padding-top: 4.5rem;
+}
+
+.invisible {
+  visibility: hidden;
+  opacity: 0;
+  transition: visibility 0s 0.5s, opacity 0.5s linear;
+}
+
+.visible {
+  visibility: visible;
+  opacity: 1;
+  transition: opacity 0.5s linear;
+}
+
+.form-centered {
+  position: fixed; /* or absolute */
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  width: 100%;
+  max-width: 330px;
+  margin: auto;
+}
+
+.form-centered .form-control {
+  position: relative;
+  box-sizing: border-box;
+  height: auto;
+  padding: 10px;
+  font-size: 16px;
+}
+
+.form-centered input[type="username"] {
+  border-bottom-right-radius: 0;
+  border-bottom-left-radius: 0;
+}
+.form-centered input[type="password"] {
+  border-top-left-radius: 0;
+  border-top-right-radius: 0;
+}
+
+.card {
+  transform: translate(50%, 0%);
+}
+
+/* https://github.com/twbs/bootstrap/tree/43c20b912eed45e43be83d71e5aec9136aecb137/site/docs/4.1/examples styles taken from album, navbar-fixed, sign-in
+
+https://css-tricks.com/quick-css-trick-how-to-center-an-object-exactly-in-the-center/ to position things in the center of the screen
+
+https://fvsch.com/transition-fade/test5.html for visibility*/

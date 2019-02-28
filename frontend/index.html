@@ -1,0 +1,113 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8"/>
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <title>Instacram</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/css/bootstrap.min.css"
+          integrity="sha384-MCw98/SFnGE8fJT3GXwEOngsV7Zt27NXFoaoApmYm81iuXoPkFOJwJ8ERdknLPMO" crossorigin="anonymous">
+    <link rel="stylesheet" type="text/css" media="screen" href="styles/provided.css"/>
+
+    <script type="module" src="src/helpers.js"></script>
+    <script type="module" src="src/api.js"></script>
+</head>
+<body>
+
+<nav id="navbar" class="navbar navbar-expand-md navbar-dark fixed-top bg-primary visible">
+    <a class="navbar-brand" href="#">Instacram</a>
+    <div class="collapse navbar-collapse" id="navbarCollapse">
+        <ul class="navbar-nav mr-auto">
+            <li class="nav-item active">
+                <label id="info-navbar" class="mx-2 mt-2 navbar-text"> </label>
+            </li>
+            <li class="nav-item">
+                <label id="page-navbar" class="mx-2 mt-2 navbar-text"> </label>
+            </li>
+        </ul>
+        <form id="navbar-buttons" class="form-inline mt-2">
+        </form>
+    </div>
+</nav>
+
+<main role='main'>
+    <div id='large-feed'></div>
+</main>
+
+<form id="login-form" class="form-centered text-center invisible">
+    <h1 id="login-header" class="h3 mb-3 font-weight-normal">Please log in</h1>
+    <input type="text" id="username-login-input" class="form-control" placeholder="Username" required autofocus>
+    <input type="password" id="password-login-input" class="form-control" placeholder="Password" required>
+    <label id="login-desc"></label>
+    <button id="form-login-button" class="btn btn-lg btn-primary btn-block my-4" type="submit">Sign in</button>
+</form>
+
+<form id="signup-form" onsubmit="return false" class="form-centered text-center invisible">
+    <h1 id="signup-header" class="h3 mb-3 font-weight-normal">Please sign up</h1>
+    <input type="text" id="username-signup-input" class="form-control" placeholder="Username" required autofocus>
+    <input type="password" id="password-signup-input" class="form-control" placeholder="Password" required>
+    <input type="email" id="email-signup-input" class="form-control" placeholder="Email" required>
+    <input type="text" id="name-signup-input" class="form-control" placeholder="Name" required>
+    <label id="signup-desc"></label>
+    <button id="form-signup-button" class="btn btn-lg btn-primary btn-block my-4" type="submit">Sign up</button>
+</form>
+
+<form id="follow-form" onsubmit="return false" class="form-centered text-center invisible">
+    <h1 id="follow-header" class="h3 mb-3 font-weight-normal">Follow a user</h1>
+    <input type="text" id="username-follow-input" class="form-control" placeholder="Username" required autofocus>
+    <label id="follow-desc"></label>
+    <button id="form-follow-button" class="btn btn-lg btn-primary btn-block my-4" type="submit">Follow</button>
+</form>
+
+<form id="unfollow-form" onsubmit="return false" class="form-centered text-center invisible">
+    <h1 id="unfollow-header" class="h3 mb-3 font-weight-normal">Unfollow a user</h1>
+    <input type="text" id="username-unfollow-input" class="form-control" placeholder="Username" required autofocus>
+    <label id="unfollow-desc"></label>
+    <button id="form-unfollow-button" class="btn btn-lg btn-primary btn-block my-4" type="submit">Unfollow</button>
+</form>
+
+<form id="post-form" onsubmit="return false" class="form-centered text-center invisible">
+    <h1 id="post-header" class="h3 mb-3 font-weight-normal">Post a picture</h1>
+    <input type="text" id="description-post-input" class="form-control" placeholder="Description" required autofocus>
+    <input type="file" id="file-post-input" class="form-control" required autofocus>
+    <label id="post-desc"></label>
+    <button id="form-post-button" class="btn btn-lg btn-primary btn-block my-4" type="submit">Post</button>
+</form>
+
+<form id="comment-form" onsubmit="return false" class="form-centered text-center invisible">
+    <h1 id="comment-header" class="h3 mb-3 font-weight-normal">Comment on a post</h1>
+    <input type="text" id="comment-comment-input" class="form-control" placeholder="Comment" required autofocus>
+    <label id="comment-desc"></label>
+    <button id="form-comment-button" class="btn btn-lg btn-primary btn-block my-4" type="submit">Comment</button>
+</form>
+
+<div id="user-profile-card" class="card my-4 w-50 shadow-lg invisible">
+    <div class="card-body">
+        <label class="card-text font-weight-bold">User:</label> <p id="user-profile-username" class="card-text"></p>
+        <label class="card-text font-weight-bold">Name:</label> <p id="user-profile-name" class="card-text"></p>
+        <label class="card-text font-weight-bold">Email:</label> <p id="user-profile-email" class="card-text"></p>
+        <label class="card-text font-weight-bold">Posts:</label> <p id="user-profile-posts" class="card-text"></p>
+        <label class="card-text font-weight-bold">Following:</label> <p id="user-profile-following" class="card-text"></p>
+        <label class="card-text font-weight-bold">Followers:</label> <p id="user-profile-followers" class="card-text"></p>
+    </div>
+</div>
+
+<!-- https://github.com/twbs/bootstrap/tree/43c20b912eed45e43be83d71e5aec9136aecb137/site/docs/4.1/examples>
+was used for a few of the html templates used here, namely the album for inspiration for the cards,
+navbar-fixed for the navbar and sign-in for all the forms, although all have been heavily edited
+
+https://getbootstrap.com/docs/4.1/getting-started/introduction/ for information on bootstrap/-->
+
+
+<script type="module" src="src/main.js"></script>
+<script src="https://code.jquery.com/jquery-3.3.1.slim.min.js"
+        integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo"
+        crossorigin="anonymous"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.3/umd/popper.min.js"
+        integrity="sha384-ZMP7rVo3mIykV+2+9J3UJ46jBk0WLaUAdn689aCwoqbBJiSnjAK/l8WvCWPIPm49"
+        crossorigin="anonymous"></script>
+<script src="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/js/bootstrap.min.js"
+        integrity="sha384-ChfqqxuZUCnJSK3+MXmPNIyE6ZbWh2IMqE241rYiqJxyMiZ6OW/JmZQ5stwEULTy"
+        crossorigin="anonymous"></script>
+</body>
+</html>
